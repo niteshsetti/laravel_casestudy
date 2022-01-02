@@ -29,6 +29,7 @@ class Logincontroller extends Controller
                     $admin = $details->Superadmin;
                 }
                 $request->session()->put(['datas' => $name, 'mobiles' => $mobile, 'Id' => $Id, 'Admin' => $admin]);
+                $request->session()->put('data',$request->input());
                 return redirect('/dashboard')->with('status', 'Login-Success');
             } else {
                 return redirect('/login')->with('error', 'Invalid-Credinals');

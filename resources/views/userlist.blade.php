@@ -42,6 +42,7 @@
     <body id="body-pd">
         <header class="header" id="header">
             <div class="header_toggle"><img src="assets/oorwin.png" id="header-toggle"></div>
+            {{session('data')['email']}}
             <div class="header_img">
                 <img src="assets/oorwin.png" alt="" id="action">
             </div>
@@ -51,13 +52,13 @@
             <div class="card-body">
                 <h5 class="card-title" id="adduser"><a href="" target="myFrame"
                         style="color:green;text-decoration:none;">Edit Profile</a></h5>
-                <h5 class="card-title"><a href="/logout" style="color:green;text-decoration:none;">Log-out</a></h5>
+                <h5 class="card-title"><a href="/signout" style="color:green;text-decoration:none;">Log-out</a></h5>
             </div>
         </div>
         @else
         <div class="card float-md-right" style="width:13rem;height:4rem;" id="hide">
             <div class="card-body">
-                <h5 class="card-title"><a href="/logout" style="color:green;text-decoration:none;">Log-out</a></h5>
+                <h5 class="card-title"><a href="/signout" style="color:green;text-decoration:none;">Log-out</a></h5>
             </div>
         </div>
         @endif

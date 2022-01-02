@@ -31,13 +31,13 @@ Route::get('/forget', function () {
     return view('forget');
 });
 Route::get('/dashboard', function () {
-    return view('userlist');
+    if(!session()->has('data')){
+        return redirect('/login');
+     }
+     return view('userlist');
 });
 Route::get('/table', function () {
     return view('userblog');
-});
-Route::get('/logout', function () {
-    return view('login');
 });
 Route::get('/createpost', function () {
     return view('createpost');
@@ -59,6 +59,16 @@ Route::get('/getdetails/{cols}', function ($cols) {
 });
 Route::get('/archeive', function () {
     return view('archeive');
+});
+Route::get('/signout',function(){
+ if(session()->has('data')){
+    session()->forget('data');
+    return redirect('/login');
+ }
+});
+Route::group(['middleware'=>['check']],function(){
+    Route::view('login','login');
+    Route::view('register','register');
 });
 Route::post('/register', [Userslist::class, 'register']);
 Route::post('/login', [Logincontroller::class, 'Login']);

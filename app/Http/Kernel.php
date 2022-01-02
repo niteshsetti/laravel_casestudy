@@ -44,6 +44,12 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'check'=>[
+            \App\Http\Middleware\Blogsopt::class,
+        ],
+        'checks'=>[
+            \App\Http\Middleware\piku::class,
+        ]
     ];
 
     /**
