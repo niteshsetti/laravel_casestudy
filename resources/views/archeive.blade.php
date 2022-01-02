@@ -38,7 +38,15 @@ $result=Createuserpost::onlyTrashed()->get();
 
     <body id="body-pd">
         @if(count($result)!=0)
+        <div class="row">
         <h2 class="text-center">Oorwin Restore Panel</h2>
+        <div class="text-end">
+            <a onclick="return confirm('Are you sure Want to RestoreAll Posts ?')"
+                href="/restoreAll" class="btn btn-success">
+                Restore All
+            </a>
+        </div>
+    </div>
         <div id="table">
             <table class="table table-striped table-borderless">
                 <thead>
@@ -49,7 +57,7 @@ $result=Createuserpost::onlyTrashed()->get();
                         <th scope="col">Created_By</th>
                         <th scope="col">Created_At</th>
                         <th scope="col">Restore</th>
-                        <th scope="col">Permanent-Delete</th>
+                        <th scope="col">Delete(Per)</th>
 
                     </tr>
                 </thead>
@@ -66,7 +74,7 @@ $result=Createuserpost::onlyTrashed()->get();
                                 Restore
                             </a></td>
                         <td><a href="/permanentdelete/{{$fetchs->Postid}}" class="btn btn-danger">
-                                Permanently Delete
+                                Agree
                             </a></td>
                     </tr>
                     @endforeach

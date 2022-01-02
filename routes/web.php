@@ -78,6 +78,7 @@ Route::get('/approve/{id}', [Approve::class, 'updates']);
 Route::get('/deapprove/{id}', [Approve::class, 'deupdate']);
 Route::get('/delete/{id}', [Delete::class, 'deletes']);
 Route::get('/restore/{id}', [Delete::class, 'restore']);
+Route::get('/restoreAll', [Delete::class, 'restoreAll']);
 Route::get('/permanentdelete/{id}', [Delete::class, 'permanent']);
 Route::get('/mail', function () {
     return view('register');
